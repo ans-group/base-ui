@@ -1,5 +1,4 @@
 import inputStyles from '../styles/input.module.scss'
-import { ReactComponent as Loading } from '../assets/loadingRipple.svg'
 import classNames from 'classnames'
 import * as icons from 'react-icons/fi'
 import React from 'react'
@@ -24,7 +23,7 @@ const Input = ({ className, icon, type, tabBefore, tabAfter, loading, ...otherPr
         <div className={inputStyles.tabAfter}>{tabAfter}</div>
       )}
       <input {...otherProps} type={type} />
-      {loading && <Loading className={inputStyles.loadingIcon} /> }
+      {loading && <div className={inputStyles.loadingIcon} /> }
     </div>
   )
 }

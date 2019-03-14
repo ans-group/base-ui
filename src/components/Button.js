@@ -1,6 +1,5 @@
 import buttonStyles from '../styles/button.module.scss'
 import classNames from 'classnames'
-import { ReactComponent as Loading } from '../assets/loadingRipple.svg'
 import * as icons from 'react-icons/fi'
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -21,9 +20,7 @@ const Button = ({ children, className, icon, size, outline, loading, ...otherPro
   return (
     <button type="button" {...otherProps} className={`${className || ''} ${classes}`}>
       {loading && (
-        <div className={buttonStyles.loadingOverlay}>
-          <Loading />
-        </div>
+        <div className={buttonStyles.loadingOverlay} />
       )
       }
       {Icon && <Icon />}
