@@ -1,0 +1,95 @@
+@import './variables';
+
+.rootInput {
+  display: inline-block;
+  padding: 0 0.75em;
+  line-height: 2;
+  border: 0.1rem solid $darkGrey;
+}
+
+.root {
+  display: inline-block;
+  position: relative;
+
+  .loadingIcon {
+    display: inline-block;
+    position: absolute;
+    height: 2em;
+    width: 2em;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+  }
+
+  input {
+    @extend .rootInput;
+    background: #fff;
+    border-radius: 0.4rem;
+    padding-right: 0;
+    width: 20rem;
+    &:focus {
+      border-color: $primaryColor;
+    }
+    &[disabled] {
+      cursor: not-allowed;
+      background: darken($lightGrey, 5%);
+      color: $grey;
+      &::placeholder {
+        color: $grey;
+      }
+    }
+  }
+
+  &.loading input {
+    padding-right: 2em;
+  }
+}
+
+.inputWithIcon {
+  & > input {
+    padding-left: 2.5em;
+  }
+  & > svg {
+    color: $grey;
+    position: absolute;
+    height: 1em;
+    top: 0;
+    bottom: 0;
+    left: .75em;
+    margin: auto 0;
+    display: inline-block;
+    transform: translateY(-0.05em);
+  }
+}
+
+.tabBefore {
+  @extend .rootInput;
+  background: $lightGrey;
+  border-right: 0;
+  border-top-left-radius: 0.4rem;
+  border-bottom-left-radius: 0.4rem;
+  & ~ input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.tabAfter {
+  @extend .rootInput;
+  background: $lightGrey;
+  border-left: 0;
+  border-top-right-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+  float: right;
+  & ~ input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.loadingIcon {
+  circle {
+    stroke: $darkGrey;
+  }
+}

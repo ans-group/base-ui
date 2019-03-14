@@ -1,0 +1,83 @@
+@import './variables';
+
+.radioStyle {
+  display: inline-block;
+
+  & > label {
+    display: block;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 0.75em;
+
+    &:before {
+      content: '';
+      border-radius: 50%;
+      border: 0.1rem solid $darkGrey;
+      display: inline-block;
+      width: 0.9em;
+      height: 0.9em;
+      margin-right: 0.4em;
+      transform: translateY(0.2em);
+      background: $lightGrey;
+    }
+
+    &:hover:before {
+      background: darken($lightGrey, 2%);
+    }
+
+    &.selected:before {
+      background: $primaryColor;
+      animation: radioCheck .2s ease-in-out;
+      animation-fill-mode: both;
+      animation-play-state: running;
+    }
+  }
+}
+
+.buttonStyle {
+  background: $lightGrey;
+  display: inline-block;
+  border-radius: 0.4rem;
+  border: 0.1rem solid $grey;
+  overflow: hidden;
+  line-height: 0;
+
+  & > label {
+    user-select: none;
+    display: inline-block;
+    padding: 0 1rem;
+    border-right: 0.1rem solid $grey;
+    line-height: 2;
+    height: 2em;
+    cursor: pointer;
+
+    &:last-child {
+      border: 0;
+    }
+    &.selected {
+      background: $primaryColor;
+      color: #fff;
+    }
+  }
+}
+
+.disabled {
+  & > label {
+    cursor: not-allowed;
+    color: $grey;
+  }
+  &.buttonStyle > label.selected,
+  &.radioStyle > label:before {
+      opacity: .5;
+  }
+}
+
+@keyframes radioCheck {
+  from {
+    box-shadow: inset 0 0 0 0.1em white, 0 0 0 0.05rem rgba($primaryColor, 0.5);
+  }
+  to {
+    box-shadow: inset 0 0 0 0.1em white, 0 0 0 0.4em rgba($primaryColor, 0.0);
+  }
+}

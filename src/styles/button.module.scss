@@ -1,0 +1,90 @@
+@import './variables';
+
+.root {
+  position: relative;
+  vertical-align: baseline;
+  color: #fff;
+  background: $primaryColor;
+  cursor: pointer;
+  border: 0.1rem solid $primaryColor;
+  border-radius: 0.3rem;
+  line-height: 1;
+  display: inline-block;
+  padding: 0.5em 1rem;
+  transition: all .2s ease-in-out;
+  letter-spacing: 0.02em;
+  overflow: hidden;
+
+  &:hover {
+    background: darken($primaryColor, 4%);
+    color: $lightGrey;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    color: lighten($primaryColor, 20%) !important;
+  }
+
+  & > svg {
+    margin-right: 0.5em;
+    float: left;
+  }
+}
+
+.iconOnly {
+  svg {
+    margin: 0;
+  }
+}
+
+.loading {
+  pointer-events: none;
+}
+
+.loadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($primaryColor,0.75);
+  text-align: center;
+  & > svg {
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+  }
+}
+
+.small {
+  font-size: 1rem;
+  * {
+    font-size: 1rem;
+  }
+}
+
+.large {
+  font-size: 2rem;
+  * {
+    font-size: 2rem;
+  }
+}
+
+.xlarge {
+  font-size: 3rem;
+  * {
+    font-size: 3rem;
+  }
+}
+
+
+
+.outline {
+  background: transparent;
+  color: $primaryColor;
+
+  &:hover {
+    background: rgba($primaryColor, 0.05);
+    color: #000;
+  }
+}
