@@ -1,0 +1,15 @@
+{
+  "main.css": "/ans-group/base-ui/main.css",
+  "main.js": "/ans-group/base-ui/main.7c4e8f5fdc3e84ae8cd8.bundle.js",
+  "main.css.map": "/ans-group/base-ui/main.css.map",
+  "main.js.map": "/ans-group/base-ui/main.7c4e8f5fdc3e84ae8cd8.bundle.js.map",
+  "runtime~main.js": "/ans-group/base-ui/runtime~main.7c4e8f5fdc3e84ae8cd8.bundle.js",
+  "runtime~main.js.map": "/ans-group/base-ui/runtime~main.7c4e8f5fdc3e84ae8cd8.bundle.js.map",
+  "vendors~main.css": "/ans-group/base-ui/vendors~main.css",
+  "vendors~main.js": "/ans-group/base-ui/vendors~main.7c4e8f5fdc3e84ae8cd8.bundle.js",
+  "vendors~main.css.map": "/ans-group/base-ui/vendors~main.css.map",
+  "vendors~main.js.map": "/ans-group/base-ui/vendors~main.7c4e8f5fdc3e84ae8cd8.bundle.js.map",
+  "iframe.html": "/ans-group/base-ui/iframe.html",
+  "precache-manifest.d81e3b689fafa6f92a605f6d8d2eb9b0.js": "/ans-group/base-ui/precache-manifest.d81e3b689fafa6f92a605f6d8d2eb9b0.js",
+  "service-worker.js": "/ans-group/base-ui/service-worker.js"
+}
