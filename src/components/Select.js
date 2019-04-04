@@ -1,7 +1,7 @@
 import selectStyles from '../styles/select.module.scss'
 import _ from 'lodash'
 import classNames from 'classnames'
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState, forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
 const Label = ({ children, handleRemove }) => (
@@ -10,7 +10,19 @@ const Label = ({ children, handleRemove }) => (
   </div>
 )
 
-const SelectBase = ({ searchable, placeholder, onClick, selected, loading, disabled, searchNode, handleRemove, open, ...otherProps }) => {
+const SelectBase = ({
+  searchable,
+  placeholder,
+  onClick,
+  selected,
+  loading,
+  disabled,
+  searchNode,
+  handleRemove,
+  open,
+  className,
+  ...otherProps
+}) => {
   const valueIsSet = Array.isArray(selected) ? selected.length > 0 : !!selected
   const classes = classNames(
     selectStyles.base,
@@ -26,7 +38,7 @@ const SelectBase = ({ searchable, placeholder, onClick, selected, loading, disab
     <div
       tabIndex={0}
       onClick={!disabled && onClick}
-      className={classes}
+      className={`${classes} ${className || ''}`}
       {...otherProps}
     >
       {valueIsSet ? renderValue : (!searchable && placeholder)}
@@ -35,14 +47,34 @@ const SelectBase = ({ searchable, placeholder, onClick, selected, loading, disab
   )
 }
 
-const Select = ({ className, size, allowCustom, loading, searchable, options, onChange, onKeyUp, onKeyDown, multiple, ...otherProps }) => {
+const Select = forwardRef(({
+  className,
+  size,
+  allowCustom,
+  loading,
+  searchable,
+  options,
+  onChange,
+  onBlur,
+  onKeyUp,
+  onKeyDown,
+  style,
+  multiple,
+  name,
+  defaultValue,
+  value,
+  ...otherProps
+}, ref) => {
+  const defaults = multiple ? [] : undefined
   const mainNode = useRef()
   const searchNode = useRef()
   const [open, setOpen] = useState(false)
   const [searchQuery, setQuery] = useState(false)
-  const [selected, selectItem] = useState(multiple ? [] : null)
+  const [selected, selectItem] = useState(value || defaultValue || defaults)
   const [filteredOptions, setOptions] = useState(options)
   const [highlightedIndex, setHighlighted] = useState(allowCustom ? -1 : 0)
+
+  if (ref) ref.current = { value: Array.isArray(selected) ? selected.map(v => v.value) : (selected && selected.value) }
 
   const handleClick = ({ target }) => {
     if (mainNode.current && mainNode.current.contains(target)) return
@@ -52,9 +84,10 @@ const Select = ({ className, size, allowCustom, loading, searchable, options, on
   const handleSelect = selectedValue => () => {
     selectedValue = typeof selectedValue === 'string' ? { value: selectedValue, text: selectedValue } : selectedValue
     if (multiple) {
-      selectItem(selected.map(o => o.value).includes(selectedValue.value)
+      const value = selected.map(o => o.value).includes(selectedValue.value)
         ? selected.filter(item => item.value !== selectedValue.value)
-        : selected.concat(selectedValue))
+        : selected.concat(selectedValue)
+      selectItem(value)
     } else {
       selectItem(selectedValue)
       setOpen(false)
@@ -143,8 +176,17 @@ const Select = ({ className, size, allowCustom, loading, searchable, options, on
         setQuery(false)
       }
     }
+    const event = {
+      target: {
+        name,
+        value: multiple ? selected.map(item => item.value) : (selected && selected.value)
+      }
+    }
     if (onChange) {
-      onChange(multiple ? selected.map(item => item.value) : (selected && selected.value))
+      onChange(event)
+    }
+    if (onBlur) {
+      onBlur(event)
     }
     document.addEventListener('mousedown', handleClick)
     return () => {
@@ -175,8 +217,8 @@ const Select = ({ className, size, allowCustom, loading, searchable, options, on
   )
 
   return (
-    <div className={`${className || ''} ${classes}`} ref={mainNode}>
-      <SelectBase open={open} selected={selected} loading={loading} searchable={searchable} searchNode={searchNode} {...otherProps} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} handleRemove={handleRemove} onClick={toggleOpen} />
+    <div className={classes} ref={mainNode} style={style}>
+      <SelectBase open={open} selected={selected} loading={loading} searchable={searchable} searchNode={searchNode} {...otherProps} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} handleRemove={handleRemove} onClick={toggleOpen} className={className} />
       {open && <div className={selectStyles.picker}>
         {allowCustom && searchQuery && (
           <div onClick={handleSelect(searchQuery)} className={highlightedIndex === -1 ? selectStyles.highlighted : ''}>
@@ -187,7 +229,7 @@ const Select = ({ className, size, allowCustom, loading, searchable, options, on
       </div>}
     </div>
   )
-}
+})
 
 Select.propTypes = {
   /** Array of strings or objects {text, value} representing the options */

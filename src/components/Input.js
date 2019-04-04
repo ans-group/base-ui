@@ -1,48 +1,56 @@
 import inputStyles from '../styles/input.module.scss'
 import classNames from 'classnames'
+import Cleave from 'cleave.js/react'
 import * as icons from 'react-icons/fi'
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { forwardRef } from 'react'
+import propTypes from 'prop-types'
 
 const allowedIcons = Object.keys(icons).map(icon => icon.substr(2))
 
-const Input = ({ className, icon, type, tabBefore, tabAfter, loading, ...otherProps }) => {
+const Input = ({ icon, type, tabBefore, format, tabAfter, value, style, defaultValue, loading, inline, innerRef, ...otherProps }) => {
   const Icon = icon && icons[`Fi${icon}`]
   const classes = classNames(
     inputStyles.root,
+    { [inputStyles.inline]: inline },
     { [inputStyles.loading]: loading },
     { [inputStyles.inputWithIcon]: !!icon }
   )
   return (
-    <div className={`${className || ''} ${classes}`}>
+    <div className={classes} style={style}>
       {Icon && <Icon />}
       {tabBefore && (
         <div className={inputStyles.tabBefore}>{tabBefore}</div>
       )}
+      <Cleave {...otherProps} type={type} value={value || defaultValue} htmlRef={htmlRef => { if (innerRef) innerRef.current = htmlRef }} options={format} />
       {tabAfter && (
         <div className={inputStyles.tabAfter}>{tabAfter}</div>
       )}
-      <input {...otherProps} type={type} />
       {loading && <div className={inputStyles.loadingIcon} /> }
     </div>
   )
 }
 
 Input.defaultProps = {
-  type: 'text'
+  type: 'text',
+  format: {}
 }
 
 Input.propTypes = {
   /** The input type (must be text-based, not submit, checkbox etc) */
-  type: PropTypes.oneOf(['text', 'tel', 'email', 'password', 'color', 'number', 'search', 'url', 'time']),
+  type: propTypes.oneOf(['text', 'tel', 'email', 'password', 'color', 'number', 'search', 'url', 'time']),
   /** Whether to show an icon - see https://goo.gl/3wa4RG (ignore Fi prefix) */
-  icon: PropTypes.oneOf(allowedIcons),
+  icon: propTypes.oneOf(allowedIcons),
+  /** Sets display to inline-block */
+  inline: propTypes.bool,
   /** Content to be displayed before the input */
-  tabBefore: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+  tabBefore: propTypes.oneOfType([propTypes.node, propTypes.string]),
   /** Content to be displayed after the input */
-  tabAfter: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+  tabAfter: propTypes.oneOfType([propTypes.node, propTypes.string]),
+  /** the auto formatting options, see: https://github.com/nosir/cleave.js/blob/master/doc/options.md */
+  format: propTypes.object,
   /** Whether to show a loading spinner */
-  loading: PropTypes.bool
+  loading: propTypes.bool
 }
 
-export default Input
+// eslint-disable-next-line
+export default forwardRef((props, ref) => <Input {...props} innerRef={ref} />)

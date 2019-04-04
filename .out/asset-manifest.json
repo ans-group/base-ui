@@ -1,0 +1,15 @@
+{
+  "main.css": "/ans-group/base-ui/main.css",
+  "main.js": "/ans-group/base-ui/main.98e1d4328771118c66cf.bundle.js",
+  "main.css.map": "/ans-group/base-ui/main.css.map",
+  "main.js.map": "/ans-group/base-ui/main.98e1d4328771118c66cf.bundle.js.map",
+  "runtime~main.js": "/ans-group/base-ui/runtime~main.98e1d4328771118c66cf.bundle.js",
+  "runtime~main.js.map": "/ans-group/base-ui/runtime~main.98e1d4328771118c66cf.bundle.js.map",
+  "vendors~main.css": "/ans-group/base-ui/vendors~main.css",
+  "vendors~main.js": "/ans-group/base-ui/vendors~main.98e1d4328771118c66cf.bundle.js",
+  "vendors~main.css.map": "/ans-group/base-ui/vendors~main.css.map",
+  "vendors~main.js.map": "/ans-group/base-ui/vendors~main.98e1d4328771118c66cf.bundle.js.map",
+  "iframe.html": "/ans-group/base-ui/iframe.html",
+  "precache-manifest.726d7d3ce4db910874e82346c24a07bd.js": "/ans-group/base-ui/precache-manifest.726d7d3ce4db910874e82346c24a07bd.js",
+  "service-worker.js": "/ans-group/base-ui/service-worker.js"
+}

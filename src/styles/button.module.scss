@@ -2,18 +2,19 @@
 
 .root {
   position: relative;
-  vertical-align: baseline;
   color: #fff;
   background: $primaryColor;
   cursor: pointer;
   border: 0.1rem solid $primaryColor;
-  border-radius: 0.3rem;
   line-height: 1;
-  display: inline-block;
-  padding: 0.5em 1rem;
+  // border-radius: 0.4rem;
+  box-shadow: inset 0 -0.4rem darken($primaryColor, 10%);
+  display: block;
+  padding: 0.9em 1.4rem;
   transition: all .2s ease-in-out;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   overflow: hidden;
+  font-weight: 500;
 
   &:hover {
     background: darken($primaryColor, 4%);
@@ -31,6 +32,10 @@
   }
 }
 
+.inline {
+  display: inline-block;
+}
+
 .iconOnly {
   svg {
     margin: 0;
@@ -43,14 +48,18 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba($primaryColor,0.75);
+  background: rgba($primaryColor,0.85);
   text-align: center;
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &:after {
-    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-ripple" style="background: none;"><circle cx="50" cy="50" r="23.3941" fill="none" stroke-width="3"><animate attributeName="r" calcMode="spline" values="0;30" keyTimes="0;1" dur="1.6" keySplines="0 0.2 0.8 1" begin="-0.8s" repeatCount="indefinite"></animate><animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="1.6" keySplines="0.2 0 0.8 1" begin="-0.8s" repeatCount="indefinite"></animate></circle><circle cx="50" cy="50" r="7.96641" fill="none" stroke-width="3"><animate attributeName="r" calcMode="spline" values="0;30" keyTimes="0;1" dur="1.6" keySplines="0 0.2 0.8 1" begin="0s" repeatCount="indefinite"></animate><animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="1.6" keySplines="0.2 0 0.8 1" begin="0s" repeatCount="indefinite"></animate></circle></svg>');
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="background: none;" stroke="currentColor"><circle cx="50" cy="50" fill="none" stroke="white" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" transform="rotate(203.819 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg>');
     width: 2em;
     height: 2em;
     display: inline-block;
+    opacity: 0.5;
   }
 }
 
@@ -75,11 +84,21 @@
   }
 }
 
-
+.secondary {
+  background: $grey;
+  box-shadow: inset 0 -0.4rem rgba($darkGrey, 0.6);
+  color: $darkGrey;
+  border: 0;
+  &:hover {
+    background: darken($grey, 5%);
+    color: $darkGrey;
+  }
+}
 
 .outline {
   background: transparent;
   color: $primaryColor;
+  box-shadow: inset 0 -0.4rem $primaryColor;
 
   &:hover {
     background: rgba($primaryColor, 0.05);

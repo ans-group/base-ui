@@ -1,10 +1,10 @@
 import radioStyles from '../styles/radio.module.scss'
 import _ from 'lodash'
 import classNames from 'classnames'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
-const Radios = ({ className, type, disabled, options, value, onChange, ...otherProps }) => {
+const Radios = forwardRef(({ className, type, disabled, options, value, onChange, ...otherProps }, ref) => {
   const [selected, selectItem] = useState(value ? { value } : (typeof options[0] === 'string' ? { value: options[0] } : options[0]))
   const handleSelect = selectedValue => () => {
     if (value || disabled) return
@@ -33,7 +33,7 @@ const Radios = ({ className, type, disabled, options, value, onChange, ...otherP
     return (
       <label key={option.value} onClick={handleSelect(option)} className={isSelected ? radioStyles.selected : ''}>
         {option.text}
-        <input style={{ display: 'none' }} type="radio" checked={isSelected} value={option.value} {...otherProps} />
+        <input style={{ display: 'none' }} type="radio" checked={isSelected} value={option.value} ref={ref} {...otherProps} />
       </label>
     )
   }
@@ -43,7 +43,7 @@ const Radios = ({ className, type, disabled, options, value, onChange, ...otherP
       {options && options.map(renderOption)}
     </div>
   )
-}
+})
 
 Radios.defaultProps = {
   type: 'button'
