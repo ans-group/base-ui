@@ -1,30 +1,30 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import tableStyles from '../../styles/table.module.scss'
+import styles from './Table.module.scss'
 import Checkbox from '../Checkbox'
 import BodyCell from './BodyCell'
 
 const BodyRow = ({ onSelect, columns, row, selected }) => (
-  <tr className={tableStyles.row} onClick={onSelect && onSelect(row.key)}>
+  <div className={styles.row}>
     {onSelect && (
-      <td className={tableStyles.cell}>
-        <Checkbox checked={selected} />
-      </td>
+      <div className={styles.cell}>
+        <Checkbox checked={selected} onClick={onSelect && onSelect(row.key)} />
+      </div>
     )}
-    {columns.map(column => (
+    {columns && columns.map(column => (
       <BodyCell key={row.key + column.key}>
         {column.render
           ? column.render(row)
           : row[column.dataIndex]}
       </BodyCell>
     ))}
-  </tr>
+  </div>
 )
 
 BodyRow.propTypes = {
   onSelect: propTypes.func,
   columns: propTypes.arrayOf(propTypes.shape({
-    title: propTypes.string.isRequired,
+    title: propTypes.any,
     dataIndex: propTypes.string,
     render: propTypes.func,
     key: propTypes.string.isRequired

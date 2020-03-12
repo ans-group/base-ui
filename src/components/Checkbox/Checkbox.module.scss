@@ -1,0 +1,103 @@
+@import '../../styles/variables';
+
+.root {
+  position: relative;
+  user-select: none;
+  display: block;
+  > input {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    position: absolute;
+  }
+  > input:focus + .label:before {
+    border-color: $primaryColor;
+  }
+}
+
+.label {
+  display: inline-block;
+  margin-left: .5rem;
+  vertical-align: top;
+  line-height: 1.3;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  &:before,
+  &:after {
+    cursor: pointer;
+  }
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    margin-right: 1rem;
+    border: 0.1rem solid $grey;
+    border-radius: 0.4rem;
+    transition: all .15s ease-in-out;
+    background: transparent;
+  }
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-size: cover;
+    transform: scale(0);
+    transform-origin: center center;
+    transition: transform .15s ease-in-out;
+    pointer-events: none;
+    height: 0.7em;
+    width: 0.6em;
+    top: 0.4rem;
+    left: 0.9rem;
+  }
+  &:hover:before {
+    border: 0.1rem solid $darkGrey;
+  }
+}
+
+.partial > .label {
+  &:before {
+    animation: checkboxCheck .2s ease-in-out;
+    animation-fill-mode: both;
+    animation-play-state: running;
+  }
+  &:after {
+    transform: scale(0.85);
+    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 10 10" style="enable-background:new 0 0 10 10;" xml:space="preserve" fill="%230985C5"><rect width="9.5" height="2.5" x="0.5" y="3.5" rx="1" ry="1" /></svg>');
+  }
+}
+
+.checked > .label {
+  &:before {
+    animation: checkboxCheck .2s ease-in-out;
+    animation-fill-mode: both;
+    animation-play-state: running;
+  }
+  &:after {
+    transform: scale(1);
+    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 26 26" fill="%230985C5"><path d="m.3,14c-0.2-0.2-0.3-0.5-0.3-0.7s0.1-0.5 0.3-0.7l1.4-1.4c0.4-0.4 1-0.4 1.4,0l.1,.1 5.5,5.9c0.2,0.2 0.5,0.2 0.7,0l13.4-13.9h0.1v-8.88178e-16c0.4-0.4 1-0.4 1.4,0l1.4,1.4c0.4,0.4 0.4,1 0,1.4l0,0-16,16.6c-0.2,0.2-0.4,0.3-0.7,0.3-0.3,0-0.5-0.1-0.7-0.3l-7.8-8.4-.2-.3z"/></svg>');
+  }
+}
+
+.disabled {
+  cursor: not-allowed;
+  color: $grey;
+  > .label:before {
+    background: $grey;
+  }
+  input {
+    cursor: not-allowed;
+  }
+}
+
+
+@keyframes checkboxCheck {
+  from {
+    box-shadow: 0 0 0 0.05rem rgba($primaryColor, 0.5);
+  }
+  to {
+    box-shadow: 0 0 0 0.5rem rgba($primaryColor, 0.0);
+  }
+}

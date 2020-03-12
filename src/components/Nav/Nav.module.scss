@@ -1,0 +1,87 @@
+
+@import '../../styles/variables';
+
+.root {
+  background: $primaryColor;
+  color: $darkGrey;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 8.5rem;
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0.5rem 0 2rem rgba(0,0,0,0.25);
+  color: #fff;
+  padding: 2.5rem 0;
+}
+
+
+.logo {
+  display: block;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-align: center;
+  width: calc(100% - 1.5rem);
+  margin: 0 auto;
+}
+
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 8rem;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  display: block;
+  text-align: center;
+  padding: 2rem 3rem;
+  letter-spacing: 0.02em;
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+  & > svg {
+    opacity: 0.6;
+    font-size: 2.6rem;
+	  display: inline-block;
+	  transform: translateY(15%);
+	}
+	& > span {
+		position: absolute;
+	  display: none;
+	  top: 0;
+	  left: 100%;
+    height: 100%;
+    margin: 0;
+    display: none;
+    align-items: center;
+	  padding: 1.2rem 3rem;
+    color: #fff;
+    font-weight: normal;
+    letter-spacing: 0.01em;
+	  background: lighten($primaryColor, 2.5%);
+  }
+  &:last-child {
+    margin-top: auto;
+    justify-self: flex-end;
+  }
+  &:hover {
+	background: lighten($primaryColor, 2.5%);
+    > span {
+      display: flex;
+      white-space: nowrap;
+    }
+    > svg {
+      opacity: 1;
+    }
+  }
+}
+
+.activeLink svg {
+  opacity: 1 !important;
+}

@@ -1,10 +1,10 @@
 import React from 'react'
-import tableStyles from '../../styles/table.module.scss'
+import styles from './Table.module.scss'
 
 const BodyCell = ({ children }) => (
-  <td className={tableStyles.cell}>
+  <div className={styles.cell}>
     {children}
-  </td>
+  </div>
 )
 
 export default BodyCell

@@ -1,5 +1,6 @@
 import validator from 'validator'
 import compact from 'lodash/compact'
+import flatten from 'lodash/flatten'
 
 const customMessages = {
   isEmail: 'Please provide a valid email address',
@@ -20,9 +21,15 @@ const handleValidation = value => validation => {
   // 'required' just checks value exists
   if (rule === 'required') return String(value) === '' && getDefaultMessage(rule)
   // otherwise validate using validator package
-  return validator[rule] && (!validator[rule](String(value), ...options) && getDefaultMessage(rule))
+  return validator[rule] && (!validator[rule](String(value), ...options) && (validation.message || getDefaultMessage(rule)))
 }
 
-const Validator = validations => value => compact(validations.map(handleValidation(value)))
+const Validator = validations => value => Array.isArray(value)
+  ? (
+    value.length > 0
+      ? compact(flatten(value.map(singleValue => validations.map(handleValidation(singleValue)))))
+      : compact(validations.map(handleValidation('')))
+  )
+  : compact(validations.map(handleValidation(value)))
 
 export default Validator

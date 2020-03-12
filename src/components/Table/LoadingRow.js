@@ -1,15 +1,20 @@
 import React from 'react'
 import BodyCell from './BodyCell'
-import tableStyles from '../../styles/table.module.scss'
+import styles from './Table.module.scss'
+import LoadingBlock from '../Loadingblock'
 
-const LoadingRow = ({ columnCount }) => (
-  <tr className={tableStyles.row}>
+const LoadingRow = ({ columnCount, width }) => (
+  <div className={styles.row}>
     {new Array(columnCount).fill(0).map((__, i) => (
       <BodyCell key={i}>
-        <span className={tableStyles.loadingBlock} />
+        <LoadingBlock style={{ height: '1.8em', width }} />
       </BodyCell>
     ))}
-  </tr>
+  </div>
 )
+
+LoadingRow.defaultProps = {
+  width: '100%'
+}
 
 export default LoadingRow

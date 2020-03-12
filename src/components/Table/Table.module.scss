@@ -1,0 +1,145 @@
+@import '../../styles/variables';
+
+$cellPadding: 1.75rem 1.5rem;
+
+.root {
+  overflow-x: auto;
+  width: 100%;
+  border-collapse: collapse;
+  position: relative;
+  display: table;
+}
+
+.headerRow {
+  border-bottom: 0.1rem solid rgba($grey, 0.25);
+  display: table-header-group
+}
+
+.headerCell {
+  box-sizing: content-box;
+  color: lighten($darkGrey, 6%);
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: left;
+  padding: $cellPadding;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.sortable {
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  padding-right: 1em;
+  > svg {
+    width: 0.8em;
+    height: 0.8em;
+    position: absolute;
+    right: 0;
+    top: 0.2em;
+  }
+}
+
+.body {
+  box-shadow: none;
+  position: relative;
+  display: table-row-group;
+  &:empty {
+    &:before,
+    &:after {
+      position: absolute;
+      text-align: center;
+      display: block;
+      width: 100%;
+    }
+    &:before {
+      content: 'Add responses to get started';
+      background-image: url('/no-content.png');
+      background-repeat: no-repeat;
+      background-size: 40rem;
+      background-position: center 5rem;
+
+      padding-top: 32rem;
+      font-weight: 600;
+      color: #5f5f5f;
+    }
+    &:after {
+      content: attr(data-empty-text);
+      top: 51rem;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.empty {
+  text-align: center;
+}
+
+.emptyImage {
+  padding-top: 8vh;
+  display: block;
+  width: 40rem;
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+.emptyTitle {
+  margin-top: 8vh;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.emptyText {
+  font-size: 1.3rem;
+}
+
+.sorted {
+  color: $darkGrey;
+}
+
+.row {
+  transition: all .2s ease-in-out;
+  background: transparent;
+  background: #fff;
+  margin-bottom: 1rem;
+  border-bottom: 0.1rem solid rgba($grey, 0.25);
+  display: table-row;
+  &:hover {
+    background: rgba(white, 0.85);
+  }
+}
+
+.cell {
+  padding: $cellPadding;
+  opacity: 1;
+  animation: fadeIn .2s ease-in-out;
+  animation-play-state: running;
+}
+
+.headerCell,
+.cell {
+  vertical-align: middle;
+  display: table-cell;
+  &:first-child {
+    padding-left: 3rem;
+  }
+  &:last-child {
+    padding-right: 3rem;
+  }
+}
+
+.inline {
+  .headerCell, .cell {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

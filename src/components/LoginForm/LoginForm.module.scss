@@ -1,0 +1,53 @@
+@import '../../styles/variables';
+
+.root {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url('/images/login_splash.jpg');
+  background-size: cover;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 8rem;
+  width: 90%;
+  max-width: 50rem;
+  height: 100%;
+  position: relative;
+  button {
+    margin-right: auto;
+  }
+}
+
+.paneBorder {
+  display: block;
+  top: 0;
+  left: 100%;
+  position: absolute;
+  height: 100vh;
+}
+
+.logo {
+  margin-bottom: 25vh;
+  img {
+    width: 15rem;
+  }
+}
+
+.heading {
+  font-weight: 500;
+  font-size: 3.1rem;
+}
+
+.badge {
+  opacity: 0.5;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 2rem;
+}

@@ -1,0 +1,53 @@
+@import '../../styles/variables';
+
+.root {
+  text-align: right;
+  margin: 2rem 0;
+  user-select: none;
+  flex-grow: 1;
+  padding: 0 3rem;
+}
+
+.button {
+  display: inline-block;
+  box-shadow: 0 0 0.5rem rgba(black, 0.1);
+  background: #fff;
+  padding: 0 0.5rem;
+  height: 3rem;
+  min-width: 3rem;
+  cursor: pointer;
+  text-align: center;
+  line-height: 3rem;
+  border-radius: 0.2rem;
+  color: $darkGrey;
+  transition: all .3s ease-in-out;
+  &:first-child {
+    margin-right: 0.5rem;
+  }
+  &:last-child {
+    margin-left: 0.5rem;
+  }
+
+  &:hover {
+    background: $lightGrey;
+    box-shadow: 0 0 0.25rem rgba(black, 0.1);
+  }
+
+  > svg {
+    transform: translateY(15%);
+  }
+}
+
+.current {
+  display: inline-block;
+  font-weight: 500;
+  line-height: 3rem;
+  padding: 0.2rem 1.25rem;
+}
+
+.active,
+.disabled {
+  pointer-events: none;
+  background: $grey;
+  opacity: 0.6;
+}
