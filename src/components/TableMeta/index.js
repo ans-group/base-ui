@@ -7,7 +7,7 @@ const TableMeta = ({ loading, currentItemCount, countedItemCount, totalItems }) 
     <div className={styles.entryCount}>
       {!loading && countedItemCount > 0
         ? `Showing ${currentItemCount > countedItemCount ? countedItemCount : currentItemCount} of ${totalItems} ${countedItemCount !== 1 ? 'items' : 'item'}`
-        : <LoadingBlock style={{ width: '12em', height: '1.2em' }} />
+        : <LoadingBlock style={{ width: '11em', height: '1.2em' }} />
       }
     </div>
   </div>
