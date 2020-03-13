@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/ans-group/base-uistatic/css/main.c7fe06f2.chunk.css",
-    "main.js": "/ans-group/base-uimain.448222432b95b138cbad.bundle.js",
+    "main.js": "/ans-group/base-uimain.adc51143a6161b26cd28.bundle.js",
     "main.css.map": "/ans-group/base-uistatic/css/main.c7fe06f2.chunk.css.map",
-    "main.js.map": "/ans-group/base-uimain.448222432b95b138cbad.bundle.js.map",
-    "runtime~main.js": "/ans-group/base-uiruntime~main.448222432b95b138cbad.bundle.js",
-    "runtime~main.js.map": "/ans-group/base-uiruntime~main.448222432b95b138cbad.bundle.js.map",
+    "main.js.map": "/ans-group/base-uimain.adc51143a6161b26cd28.bundle.js.map",
+    "runtime~main.js": "/ans-group/base-uiruntime~main.adc51143a6161b26cd28.bundle.js",
+    "runtime~main.js.map": "/ans-group/base-uiruntime~main.adc51143a6161b26cd28.bundle.js.map",
     "vendors~main.css": "/ans-group/base-uistatic/css/vendors~main.764ccc25.chunk.css",
-    "vendors~main.js": "/ans-group/base-uivendors~main.448222432b95b138cbad.bundle.js",
+    "vendors~main.js": "/ans-group/base-uivendors~main.adc51143a6161b26cd28.bundle.js",
     "vendors~main.css.map": "/ans-group/base-uistatic/css/vendors~main.764ccc25.chunk.css.map",
-    "vendors~main.js.map": "/ans-group/base-uivendors~main.448222432b95b138cbad.bundle.js.map",
+    "vendors~main.js.map": "/ans-group/base-uivendors~main.adc51143a6161b26cd28.bundle.js.map",
     "iframe.html": "/ans-group/base-uiiframe.html",
-    "precache-manifest.ee3ec78d946e62511e912b911a916a36.js": "/ans-group/base-uiprecache-manifest.ee3ec78d946e62511e912b911a916a36.js",
+    "precache-manifest.c857cf5b80939d4a60f9740ee25d8762.js": "/ans-group/base-uiprecache-manifest.c857cf5b80939d4a60f9740ee25d8762.js",
     "service-worker.js": "/ans-group/base-uiservice-worker.js",
     "static/media/style.css": "/ans-group/base-uistatic/media/style.5ae4a044.css",
-    "vendors~main.448222432b95b138cbad.bundle.js.LICENSE.txt": "/ans-group/base-uivendors~main.448222432b95b138cbad.bundle.js.LICENSE.txt"
+    "vendors~main.adc51143a6161b26cd28.bundle.js.LICENSE.txt": "/ans-group/base-uivendors~main.adc51143a6161b26cd28.bundle.js.LICENSE.txt"
   },
   "entrypoints": [
-    "runtime~main.448222432b95b138cbad.bundle.js",
+    "runtime~main.adc51143a6161b26cd28.bundle.js",
     "static/css/vendors~main.764ccc25.chunk.css",
-    "vendors~main.448222432b95b138cbad.bundle.js",
+    "vendors~main.adc51143a6161b26cd28.bundle.js",
     "static/css/main.c7fe06f2.chunk.css",
-    "main.448222432b95b138cbad.bundle.js"
+    "main.adc51143a6161b26cd28.bundle.js"
   ]
 }

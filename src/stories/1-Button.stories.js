@@ -41,7 +41,6 @@ export const Text = () => (
 
 export const IconOnly = () => (
   <Button 
-      onClick={action('clicked')} 
       size={select('Size', buttonSizes, 'default')}
       icon={select('Icon', iconOptions, 'ThumbsUp')}
       outline={boolean('Outline', false)}

@@ -61,4 +61,6 @@ Radios.propTypes = {
   value: PropTypes.string
 }
 
+Radios.displayName = "Radios"
+
 export default Radios

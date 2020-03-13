@@ -1,6 +1,6 @@
 import styles from './Input.module.scss'
 import Label from '../Label'
-import uuid from 'uuid/v1'
+import { v1 as uuid } from 'uuid'
 import classNames from 'classnames'
 import * as icons from 'react-icons/fi'
 import React, { forwardRef } from 'react'
@@ -19,7 +19,7 @@ const Input = forwardRef(({ icon, type, tabBefore, tabAfter, value, style, label
   )
   return (
     <React.Fragment>
-      {label && <Label for={id}>{label}</Label>}
+      {label && <Label htmlFor={id}>{label}</Label>}
       <div className={classes} style={style}>
         <div className={styles.beforeSection}>
           {Icon && <Icon />}
@@ -28,8 +28,8 @@ const Input = forwardRef(({ icon, type, tabBefore, tabAfter, value, style, label
           )}
         </div>
       {type !== 'textarea'
-       ? <input {...otherProps} id={id} type={type} value={value} defaultValue={defaultValue} ref={ref}/>
-       : <textarea {...otherProps} id={id} type={type} value={value} defaultValue={defaultValue} ref={ref} />
+       ? <input {...otherProps} id={id} type={type} value={value || ''} defaultValue={defaultValue} ref={ref}/>
+       : <textarea {...otherProps} id={id} type={type} value={value || ''} defaultValue={defaultValue} ref={ref} />
       }
         {tabAfter && (
           <div className={styles.tabAfter}>{tabAfter}</div>
@@ -60,5 +60,6 @@ Input.propTypes = {
   loading: propTypes.bool
 }
 
-// eslint-disable-next-line
+Input.displayName = "Input"
+
 export default Input

@@ -31,8 +31,8 @@ export const Default = () => (
       label={text('Label', 'Input Label')}
       placeholder={text('Placeholder', 'Enter some text')}
       icon={select('Icon', { None: null, ...iconOptions }, null)}
-      tabBefore={text('Tab Before', null)}
-      tabAfter={text('Tab After', null)}
+      tabBefore={text('Tab Before', '')}
+      tabAfter={text('Tab After', '')}
       type={select('Type', inputTypes, 'text')}
       disabled={boolean('Disabled', false)}
       loading={boolean('Loading', false)} />

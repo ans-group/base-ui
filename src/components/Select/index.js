@@ -262,4 +262,6 @@ Select.propTypes = {
   searchable: PropTypes.bool
 }
 
+Select.displayName = "Select"
+
 export default Select

@@ -1,5 +1,5 @@
 import React, { useState, forwardRef, useEffect } from 'react'
-import uuid from 'uuid/v1'
+import { v1 as uuid } from 'uuid'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import styles from './Checkbox.module.scss'
@@ -46,5 +46,7 @@ Checkbox.propTypes = {
   /** Show a partial checked effect */
   partial: PropTypes.bool
 }
+
+Checkbox.displayName = "Checkbox"
 
 export default Checkbox

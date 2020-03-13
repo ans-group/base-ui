@@ -2,6 +2,7 @@ import { addParameters, addDecorator } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import { withKnobs } from '@storybook/addon-knobs'
 import { withA11y } from '@storybook/addon-a11y'
+import { jsxDecorator } from 'storybook-addon-jsx'
 
 addParameters({
   options: {
@@ -13,6 +14,7 @@ addParameters({
   }
 })
 
+addDecorator(jsxDecorator)
 addDecorator(withInfo)
 addDecorator(withKnobs)
 addDecorator(withA11y)
