@@ -6,7 +6,7 @@ import propTypes from 'prop-types'
 
 const allowedIcons = Object.keys(icons).map(icon => icon.substr(2))
 
-const Button = ({ children, className, icon, size, outline, secondary, loading, inline, green, red, ...otherProps }) => {
+const Button = ({ children, className, icon, size, outline, secondary, loading, inline, green, red, white, ...otherProps }) => {
   const classes = classNames(
     styles.root,
     { [styles.inline]: inline },
@@ -18,6 +18,7 @@ const Button = ({ children, className, icon, size, outline, secondary, loading, 
     { [styles.secondary]: !!secondary },
     { [styles.green]: !!green },
     { [styles.red]: !!red },
+    { [styles.white]: !!white },
     { [styles.outline]: !!outline }
   )
   const Icon = icon && (

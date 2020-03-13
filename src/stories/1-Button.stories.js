@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { text, boolean, number, array, select } from '@storybook/addon-knobs'
+import { boolean, select } from '@storybook/addon-knobs'
 import 'normalize.css'
 import '../styles/global.scss'
 import { clickAction } from './helpers'
@@ -31,6 +31,7 @@ export const Text = () => (
       size={select('Size', buttonSizes, 'default')}
       icon={select('Icon', {   None: null, ...iconOptions }, null)}
       outline={boolean('Outline', false)}
+      white={boolean('White', false)}
       onClick={clickAction}
       disabled={boolean('Disabled', false)}
       loading={boolean('Loading', false)}>
@@ -39,11 +40,11 @@ export const Text = () => (
 )
 
 export const IconOnly = () => (
-  <Button onClick={action('clicked')} 
+  <Button 
+      onClick={action('clicked')} 
       size={select('Size', buttonSizes, 'default')}
       icon={select('Icon', iconOptions, 'ThumbsUp')}
       outline={boolean('Outline', false)}
-      onClick={clickAction}
       disabled={boolean('Disabled', false)}
       loading={boolean('Loading', false)}
   />

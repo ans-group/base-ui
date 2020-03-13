@@ -1,6 +1,6 @@
 import styles from './Input.module.scss'
-import uuid from 'uuid/v1'
 import Label from '../Label'
+import uuid from 'uuid/v1'
 import classNames from 'classnames'
 import * as icons from 'react-icons/fi'
 import React, { forwardRef } from 'react'
@@ -19,12 +19,14 @@ const Input = forwardRef(({ icon, type, tabBefore, tabAfter, value, style, label
   )
   return (
     <React.Fragment>
-      {label ? <Label for={id}>{label}</Label> : ''}
+      {label && <Label for={id}>{label}</Label>}
       <div className={classes} style={style}>
-        {Icon && <Icon />}
-        {tabBefore && (
-          <div className={styles.tabBefore}>{tabBefore}</div>
-        )}
+        <div className={styles.beforeSection}>
+          {Icon && <Icon />}
+          {tabBefore && (
+            <div className={styles.tabBefore}>{tabBefore}</div>
+          )}
+        </div>
       {type !== 'textarea'
        ? <input {...otherProps} id={id} type={type} value={value} defaultValue={defaultValue} ref={ref}/>
        : <textarea {...otherProps} id={id} type={type} value={value} defaultValue={defaultValue} ref={ref} />

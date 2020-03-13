@@ -2,13 +2,14 @@
 
 .rootInput {
   padding: 0 0.75em;
-    border: 0.1rem solid $grey;
-  border-radius: 0.4rem;
+  border: 0.1rem solid $grey;
+  padding: calc(0.3rem + 0.1em) 1.5rem calc(0.3rem - 0.1em);
   transition: all 0.2s ease-in-out;
   font-weight: 300;
   line-height: 2.5;
   &::placeholder {
     color: #858585;
+    color: $grey;
   }
 }
 
@@ -68,17 +69,21 @@
   }
 }
 
+.beforeSection {
+  position: relative;
+}
+
 .inputWithIcon {
   & > input {
     padding-left: 2.5em;
   }
-  & > svg {
-    color: $grey;
+  & svg {
+    color: $darkGrey;
     position: absolute;
     height: 1em;
     top: 0;
     bottom: 0;
-    left: .75em;
+    left: calc(100% + .75em);
     margin: auto 0;
     display: inline-block;
     transform: translateY(-0.05em);

@@ -5,6 +5,10 @@ import { withA11y } from '@storybook/addon-a11y'
 
 addParameters({
   options: {
+    backgrounds: [
+      { name: 'Light', value: '#fff', default: true},
+      { name: 'Dark', value: '#1e1e1e' }
+    ],
     showPanel: true
   }
 })

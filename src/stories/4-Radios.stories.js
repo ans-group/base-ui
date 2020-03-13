@@ -1,6 +1,5 @@
 import React from 'react'
-import { action } from '@storybook/addon-actions'
-import { text, boolean, number, array, select } from '@storybook/addon-knobs'
+import { array } from '@storybook/addon-knobs'
 import 'normalize.css'
 import '../styles/global.scss'
 import { changeAction } from './helpers'

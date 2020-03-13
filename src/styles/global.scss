@@ -1,5 +1,47 @@
 @import './variables';
 
+@font-face {
+  font-family: 'Axiforma';
+  src: url('/Axiforma-Light.ttf');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Axiforma';
+  src: url('/Axiforma-Book.ttf');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Axiforma';
+  src: url('/Axiforma-Medium.ttf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Axiforma';
+  src: url('/Axiforma-SemiBold.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Axiforma';
+  src: url('/Axiforma-Bold.ttf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Axiforma';
+  src: url('/Axiforma-ExtraBold.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Axiforma';
+  src: url('/Axiforma-Black.ttf');
+  font-weight: 700;
+}
+
 :focus {
   outline: $primaryColor solid 1px;
   outline-offset: 0;
@@ -7,15 +49,17 @@
 
 html {
   font-size: 62.5%;
-  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+  font-family: 'Axiforma', sans-serif;
   padding: 1rem;
 }
 
 body {
   font-size: 1.6em;
   overflow-x: hidden;
+  font-weight: 300;
   * {
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Axiforma', sans-serif;
     font-size: 1.4rem;
     box-sizing: border-box;
   }
@@ -23,6 +67,12 @@ body {
 
 a {
   color: inherit;
+}
+
+p {
+  line-height: 1.5;
+  font-weight: 100;
+  letter-spacing: 0.01em;
 }
 
 ::placeholder {

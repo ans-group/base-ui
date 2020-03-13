@@ -19,7 +19,7 @@ const Radios = forwardRef(({ className, type, disabled, options, value, onChange
     if (onChange) {
       onChange(selected > -1 ? options[selected] : null)
     }
-  }, [selected, onChange])
+  }, [selected, onChange, options])
 
   const classes = classNames(
     { [styles.radioStyle]: type === 'radio' },

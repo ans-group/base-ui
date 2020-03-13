@@ -8,11 +8,10 @@
 .base {
   display: inline-block;
   position: relative;
-  padding: 0 0.75em;
+  padding: 0.1em 1rem 0;
+  line-height: 2.5;
   padding-right: 2.5rem;
   flex-grow: 1;
-  border-radius: 0.4rem;
-  line-height: 2.5;
   border: 0.1rem solid $grey;
   min-height: 2.5em;
   width: 20rem;
@@ -69,7 +68,6 @@
   left: 0;
   max-height: 14em;
   overflow-y: auto;
-  border-radius: 0.5rem;
   background: #fff;
   box-shadow: 0 0.1rem 1rem 0.05rem rgba(0,0,0,0.15);
   transform-origin: top;
@@ -137,7 +135,6 @@
 
 .label {
   display: inline-block;
-  border-radius: 0.3rem;
   line-height: 1;
   padding: 0.2rem;
   margin-right: 0.5em;

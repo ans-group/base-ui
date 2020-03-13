@@ -5,12 +5,11 @@
   color: #fff;
   background: $primaryColor;
   cursor: pointer;
-  border: 0.1rem solid $primaryColor;
+  border: 0.2rem solid $primaryColor;
   line-height: 1;
-  border-radius: 0.4rem;
   display: block;
-  padding: 1rem 2rem;
-  font-size: 1.6rem;
+  padding: calc(1rem + 0.1em) 2rem calc(1rem - 0.1em);
+  font-size: 1.5rem;
   transition: all .2s ease-in-out;
   letter-spacing: 0.04em;
   overflow: hidden;
@@ -27,9 +26,9 @@
   }
 
   & > svg {
-    margin-right: 0.5em;
+    margin-right: 0.6em;
     float: left;
-    transform: scale(1.2) translateY(0.01em);
+    transform: scale(1.1) translateY(-0.1em);
   }
 }
 
@@ -38,6 +37,7 @@
 }
 
 .iconOnly {
+  padding: 1rem 1.5rem;
   svg {
     margin: 0;
   }
@@ -74,6 +74,15 @@
   }
 }
 
+.white {
+  color: #000;
+  background: #fff;
+  border: 0;
+  &:hover {
+    background: $lightGrey;
+  }
+}
+
 .green {
   background: $successGreen;
   border: 0;
@@ -92,12 +101,12 @@
 
 .outline {
   background: transparent;
-  color: $primaryColor;
+  color: #000;
   box-shadow: none;
 
   &:hover {
-    background: rgba($primaryColor, 0.05);
-    color: #000;
+    background: $primaryColor;
+    color: #fff;
   }
 }
 
