@@ -41,6 +41,7 @@
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.13.0",
     "react-icons": "^3.9.0",
+    "react-transition-group": "^4.3.0",
     "uuid": "^7.0.2",
     "validator": "^12.2.0"
   },
